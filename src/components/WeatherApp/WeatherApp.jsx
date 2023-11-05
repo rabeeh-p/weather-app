@@ -69,7 +69,7 @@ const WeatherApp = () => {
             }else{
                 setError('')
             }
-            console.log(err.response.status)})
+            console.log(err)})
         }else{
             setLoader(true)
         }
