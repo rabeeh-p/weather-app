@@ -1,188 +1,274 @@
-body{
-    background-color: #F5F5F5;
-}
-
-.container{
-    width: 607px;
-    height:829px;
-    margin: auto;
-    margin-top: 75px;
-    background-image: linear-gradient(180deg,#130754 0%, #3b2f80 100%);
-    border-radius: 15px;
-}
-
-.top-bar{
-    display: flex;
-    justify-content:  center ;
-    gap: 14px;
-    padding-top: 50px;
-}
-
-.top-bar input{
-    display: flex;
-    width: 362px;
-    height: 78px;
-    background-color: #ebfffc;
-    border: none;
-    outline: none;
-    border-radius: 50px;
-    padding-left: 19px;
-    font-size: 20px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
-.search-icon{
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color:#ebfffc ;
-    width: 78px;
-    border-radius: 40px;
-
-}
-
-.search-icon:hover{
-    background-color: #3b2f80;
-    cursor: pointer;
-}
-
-.weather-image{
-    margin-top: 29px;
-    display: flex;
-    justify-content: center;
-}
-
-.weather-temp{
-    display: flex;
-    justify-content: center;
-    color: white;
-    font-size: 120px;
-    font-weight: 400;
-}
-
-.weather-location{
-    display: flex;
-    justify-content: center;
-    color: white;
-    font-size: 90px;
-} 
-
-.data-container{
-    display: flex;
-    justify-content: center;
-}
-
-.element{
-    margin: auto;
-    margin-top: 60px;
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-}
-
-.data{
-    font-size: 34px;
-    font-weight: 400;
-}
-
-.text{
-    color: white;
-    font-weight: 400;
-}
-.humidity-percent{
-    color: white;
-    font-weight: 400;
+    height: 100vh;
+    background: linear-gradient(to top right, #f06f6f, #ff8c00, #56cfe1); /* Warm coral-pink to orange to soft blue */
+    background-attachment: fixed; /* Make background fixed */
+    background-size: cover; /* Ensure the gradient covers the full screen */
+    color: white; /* Light text for contrast */
+    transition: background-color 0.5s ease;
 }
 
 
-.error{
-    color: white;
-    text-align: left;
-    /* background-color: red; */
-    padding-left: 50px;
-    font-size: 20px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    padding-top: 20px;
-}
-
-.loader{
-    color: white;
-    margin: 200px auto;
-    /* background-color: red; */
-    /* width: 200px; */
+/* Container styling */
+/* Styling for the container div */
+.container {
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Soft shadow for depth */
+    color: white; /* Ensure text is visible on the dark background */
+    max-width: 600px;
+    width: 100%;
     text-align: center;
-    font-size: 50px;
-    font-style: italic;
 }
 
 
+/* Input section - Search bar and icon */
+.top-bar {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 30px;
+    position: relative;
+}
 
+.top-bar input {
+    width: 100%;
+    max-width: 400px;
+    padding: 15px 20px;
+    background-color: #ebfffc;
+    border: 2px solid #ddd;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: 600;
+    transition: 0.3s;
+    padding-left: 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+}
+
+.top-bar input:focus {
+    border-color: #3b2f80;
+    outline: none;
+    box-shadow: 0 0 15px rgba(59, 47, 128, 0.5); 
+}
+
+.search-icon {
+    position: absolute;
+    left: 1px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #ebfffc;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.3s;
+    border: 1px solid #ddd; /* Subtle border around the icon */
+}
+
+/* Search icon hover effect */
+    
+
+/* Weather Info */
+.weather-image {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.weather-temp {
+    color: #fff;
+    font-size: 120px;
+    font-weight: 500;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+}
+
+.weather-location {
+    font-size: 28px;
+    margin-top: 10px;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 300;
+}
+
+/* Data display */
+.data-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+}
+
+.element {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.data {
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.text {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.humidity-percent {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Error message */
+.error {
+    color: #FF5C8D;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+/* Loader styling */
+.loader {
+    color: #fff;
+    margin: 50px auto;
+    text-align: center;
+    font-size: 24px;
+    font-style: italic;
+    font-weight: 500;
+    letter-spacing: 1.5px;  /* Adds a little space between letters for a sleek look */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2); /* Soft shadow to enhance the text */
+    animation: fadeIn 1.5s ease-out; /* Animation runs only once */
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}
+
+/* Responsive design */
 @media (max-width: 607px) {
     .container {
-        width: 100%;
-        height: auto;
-        margin-bottom: 90px;
+        width: 90%;
+        padding: 25px;
     }
+
     .top-bar {
         flex-direction: column;
         align-items: center;
-        padding-top: 30px;
+        width: 100%;  /* Ensure the top-bar spans the full width */
     }
+
     .top-bar input {
-        width:300px;
-        margin-bottom: 10px;
-    }
-    .search-icon {
-        height: 50px;
-
-    }
-    .weather-location {
-        font-size: 50px;
-    }
-    .element{
-        margin-left: 13px;
-        margin-bottom: 30px;
-    }
-    .text{
-        font-size: 20px;
-    }
-    .weather-image{
-        height:150px ;
-        margin: 0;
-    }
-    .weather-temp{
-        font-size:50px ;
-    }
-    .loader{
-        margin: 20px auto;
-        /* background-color: red; */
-        font-size: 40px;
-        width: 190px;
-        font-style: italic;
-        
-
-    }
-}
-
-/* Adjust styles for screens smaller than 362px */
-@media (max-width: 362px) {
-    .top-bar input {
+        width: 100%;
+        max-width: 350px;
         font-size: 16px;
-        width: auto;
+        padding: 12px 18px; /* Adjust padding */
+        font-weight: 500;
+        margin-bottom: 15px;  /* Space between input and icon */
     }
+
+    .search-icon {
+        width: 45px;
+        height: 45px;
+        margin-top: 50px; 
+        margin-left: 130px;
+        order: 2; 
+    }
+
+    .weather-location {
+        font-size: 24px;
+    }
+
     .weather-temp {
         font-size: 80px;
     }
-    .weather-location {
-        font-size: 30px;
+
+    .element {
+        margin: 10px 0;
     }
-    .element{
-        display: flex;
+
+    .text {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 362px) {
+    .top-bar input {
+        font-size: 14px;
+        width: 100%;
+        padding: 10px 15px;
+    }
+
+    /* .search-icon {
+        width: 40px;
+        height: 40px;
+    } */
+
+    .weather-temp {
+        font-size: 70px;
+    }
+
+    .weather-location {
+        font-size: 20px;
+    }
+
+    .element {
         flex-direction: column;
+        margin-top: 15px;
     }
 }
 
 
+/* Error Message Styling */
+.error {
+    color: #FF5C8D; /* Soft red color for error */
+    background-color: #fff0f3; /* Light pinkish background for contrast */
+    border-left: 5px solid #FF5C8D; /* Red border on the left for emphasis */
+    padding: 15px 20px; /* Spacious padding */
+    border-radius: 8px; /* Rounded corners */
+    font-size: 18px; /* Comfortable font size */
+    font-weight: 500; /* Slightly bold text */
+    margin-top: 20px; /* Space from other content */
+    text-align: left; /* Align text to the left */
+    display: flex;
+    align-items: center; /* Align icon and text properly */
+    gap: 10px; /* Space between icon and message text */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+    animation: fadeIn 0.5s ease-out; /* Fade-in effect on display */
+}
 
+/* Error Icon */
+.error-icon {
+    font-size: 24px; /* Icon size */
+    color: #FF5C8D; /* Matching red color for the icon */
+}
 
-
+/* Error Message Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
